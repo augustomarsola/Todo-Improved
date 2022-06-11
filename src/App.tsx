@@ -1,4 +1,5 @@
 import { Header } from "./components/Header";
+import { TaskControl } from "./components/TasksControl";
 import { GlobalStyle } from "./styles/global";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
+      <TaskControl />
     </>
   );
 }
