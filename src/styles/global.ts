@@ -38,13 +38,13 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  body, input, textarea, button {
+  body, input[type="text"], textarea, button {
     font-size: 1rem;
     font-weight: 400;
     color: var(--gray-100);
   }
 
-  input {
+  input[type="text"] {
     width: 100%;
     background: var(--gray-500);
     padding: 1rem;
@@ -72,5 +72,14 @@ export const GlobalStyle = createGlobalStyle`
 
   .font-bold {
     font-weight: 700;
+  }
+
+  .sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
   }
 `;
