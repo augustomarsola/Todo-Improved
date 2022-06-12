@@ -69,4 +69,8 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     border-radius: .5rem;
   }
+
+  .font-bold {
+    font-weight: 700;
+  }
 `;
