@@ -1,12 +1,25 @@
 import { Container } from "./styles";
 import { HiOutlineTrash } from "react-icons/hi";
+import { useState } from "react";
 
 export function TaskInfo() {
+  const [checked, setChecked] = useState(false);
+
+  function handleTaskStatus() {
+    setChecked(!checked);
+  }
+
   return (
-    <Container>
+    <Container className={checked ? "taskDone" : ""}>
       <div className="checkboxControl">
-        <label htmlFor="checkbox-" className="formInput">
-          <input type="checkbox" id="checkbox-" />
+        <label /*htmlFor="checkbox-"*/>
+          <input
+            className="formInput"
+            type="checkbox"
+            id="checkbox-"
+            checked={checked}
+            onChange={handleTaskStatus}
+          />
           <span className="sr-only">Finalizar esta tarefa</span>
         </label>
       </div>

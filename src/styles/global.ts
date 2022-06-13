@@ -64,52 +64,30 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .formInput {
-    input[type="checkbox"] {
-      margin: 0;
-      appearance: none;
-      border: .125rem solid var(--blue);
-      border-radius: 50%;
-      width: 1rem;
-      height: 1rem;
-      background: transparent;
-      display: grid;
-      place-content: center;
-      -webkit-print-color-adjust: exact;
-      color-adjust: exact;
-      transition: .2s;
-      cursor: pointer;
+    margin: 0;
+    appearance: none;
+    border: .125rem solid var(--blue);
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    background: transparent;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    transition: .1s;
+    cursor: pointer;
 
-      &::before {
-        content: "";
-        width: 1em;
-        height: 1em;
-        display: inline-block;
-        display: inline-block;
-        transition: .2s;
-        border-radius: 50%;
-        box-shadow: inset 1em 1em transparent;
-      }
+    &:hover {
+      border: .125rem solid var(--blue-dark);
+      background: var(--hover-blue);
+    }
+    
+    &:checked {
+      border: .125rem solid var(--purple-dark);
+      background: var(--purple-dark);
 
       &:hover {
-        border: .125rem solid var(--blue-dark);
-        &::before {
-          box-shadow: inset 1em 1em var(--hover-blue);
-        }
-      }
-      
-      &:checked {
-        border: .125rem solid var(--purple-dark);
-
-        &::before {
-          box-shadow: inset 1em 1em var(--purple-dark);
-        }
-
-        &:hover {
-          border: .125rem solid var(--purple);
-          &::before {
-            box-shadow: inset 1em 1em var(--purple);
-          }
-        }
+        border: .125rem solid var(--purple);
+        background: var(--purple);
       }
     }
   }

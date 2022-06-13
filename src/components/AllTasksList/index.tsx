@@ -30,7 +30,11 @@ export function AllTasksList() {
             </div>
           </div>
         ) : (
-          <TaskInfo />
+          <>
+            <TaskInfo />
+            <TaskInfo />
+            <TaskInfo />
+          </>
         )}
       </div>
     </Container>

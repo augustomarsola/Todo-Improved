@@ -9,6 +9,7 @@ export const Container = styled.div`
   border: solid 1px var(--gray-400);
   border-radius: 0.5rem;
   padding: 1rem;
+  transition: border 0.2s;
 
   span {
     flex-grow: 1;
@@ -31,5 +32,9 @@ export const Container = styled.div`
       text-decoration: line-through;
       color: var(--gray-300);
     }
+  }
+
+  & + div {
+    margin-top: 0.75rem;
   }
 `;
