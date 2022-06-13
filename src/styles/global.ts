@@ -77,6 +77,7 @@ export const GlobalStyle = createGlobalStyle`
       -webkit-print-color-adjust: exact;
       color-adjust: exact;
       transition: .2s;
+      cursor: pointer;
 
       &::before {
         content: "";

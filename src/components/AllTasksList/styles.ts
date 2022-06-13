@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
   margin-top: 4rem;
+  font-size: 0.875rem;
 
   .tasksOverview {
     font-weight: 700;

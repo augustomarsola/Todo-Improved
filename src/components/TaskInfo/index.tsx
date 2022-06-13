@@ -14,7 +14,7 @@ export function TaskInfo() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, maxime
         mollitia labore vero deserunt cum iste consectetur iure.
       </span>
-      <button aria-label="Excluir Tarefa">
+      <button aria-label="Excluir Tarefa" type="button">
         <span className="sr-only">Excluir tarefa</span>
         <HiOutlineTrash />
       </button>
