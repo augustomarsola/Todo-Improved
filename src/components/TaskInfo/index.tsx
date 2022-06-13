@@ -5,8 +5,8 @@ export function TaskInfo() {
   return (
     <Container>
       <div className="checkboxControl">
-        <input type="checkbox" id="checkbox-" />
-        <label htmlFor="checkbox-">
+        <label htmlFor="checkbox-" className="formInput">
+          <input type="checkbox" id="checkbox-" />
           <span className="sr-only">Finalizar esta tarefa</span>
         </label>
       </div>

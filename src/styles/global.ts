@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     --purple-dark: #5E60CE;
     --blue: #4EA8DE;
     --blue-dark: #1E6F9F;
+    --hover-blue: #0C1C26;
     --danger: #E25858;
 
     --gray-700: #0D0D0D;
@@ -59,6 +60,56 @@ export const GlobalStyle = createGlobalStyle`
     
     &:hover, &:focus {
       border: 1px solid var(--purple-dark);
+    }
+  }
+
+  .formInput {
+    input[type="checkbox"] {
+      margin: 0;
+      appearance: none;
+      border: .125rem solid var(--blue);
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      background: transparent;
+      display: grid;
+      place-content: center;
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+      transition: .2s;
+
+      &::before {
+        content: "";
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        display: inline-block;
+        transition: .2s;
+        border-radius: 50%;
+        box-shadow: inset 1em 1em transparent;
+      }
+
+      &:hover {
+        border: .125rem solid var(--blue-dark);
+        &::before {
+          box-shadow: inset 1em 1em var(--hover-blue);
+        }
+      }
+      
+      &:checked {
+        border: .125rem solid var(--purple-dark);
+
+        &::before {
+          box-shadow: inset 1em 1em var(--purple-dark);
+        }
+
+        &:hover {
+          border: .125rem solid var(--purple);
+          &::before {
+            box-shadow: inset 1em 1em var(--purple);
+          }
+        }
+      }
     }
   }
 
