@@ -34,3 +34,10 @@ This will open a windown to preview the project on the adress **http://localhost
 - [React](https://reactjs.org/) - The web framework used
 - [Typescript](https://rometools.github.io/rome/) - For superset JavaScript
 - [Styled Components](https://maven.apache.org/) - For styling
+
+## TODO
+
+- Done Tasks number information
+- Order Finished Tasks to end of list
+- Save list on localstorage
+- Forbbiden add empty task
