@@ -2,15 +2,22 @@ import { Container } from "./styles";
 import Clipboard from "../../assets/Clipboard.svg";
 import { TaskInfo } from "../TaskInfo";
 
-export function AllTasksList() {
-  const listCount = 0;
+interface Tasks {
+  id: string;
+  taskToDo: string;
+}
 
+interface AllTasksListProps {
+  allTasks: Tasks[];
+}
+
+export function AllTasksList({ allTasks }: AllTasksListProps) {
   return (
     <Container>
       <div className="tasksOverview">
         <div>
           <span className="todosCreated">Tarefas criadas</span>
-          <span className="badge">5</span>
+          <span className="badge">{allTasks.length}</span>
         </div>
         <div>
           <span className="todosDone">Concluídas</span>
@@ -19,7 +26,11 @@ export function AllTasksList() {
       </div>
 
       <div className="taskList">
-        {listCount ? (
+        {allTasks.length ? (
+          allTasks.map((task) => (
+            <TaskInfo key={task.id} text={task.taskToDo} />
+          ))
+        ) : (
           <div className="taskList__empty">
             <img src={Clipboard} alt="Prancheta Vazia" aria-hidden="true" />
             <div className="taskList__emptyText">
@@ -29,12 +40,6 @@ export function AllTasksList() {
               <p>Crie tarefas e organize seus itens a fazer</p>
             </div>
           </div>
-        ) : (
-          <>
-            <TaskInfo />
-            <TaskInfo />
-            <TaskInfo />
-          </>
         )}
       </div>
     </Container>
