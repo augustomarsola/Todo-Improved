@@ -28,7 +28,7 @@ export function AllTasksList({ allTasks }: AllTasksListProps) {
       <div className="taskList">
         {allTasks.length ? (
           allTasks.map((task) => (
-            <TaskInfo key={task.id} text={task.taskToDo} />
+            <TaskInfo key={task.id} taskId={task.id} text={task.taskToDo} />
           ))
         ) : (
           <div className="taskList__empty">

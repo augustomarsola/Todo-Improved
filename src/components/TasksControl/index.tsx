@@ -20,7 +20,6 @@ export function TaskControl() {
     };
 
     setTask([...task, newTask]);
-    console.log(task);
   }
 
   return (

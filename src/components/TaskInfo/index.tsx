@@ -3,11 +3,11 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { useState } from "react";
 
 interface TaskInfoProps {
-  key: string;
+  taskId: string;
   text: string;
 }
 
-export function TaskInfo({ key, text }: TaskInfoProps) {
+export function TaskInfo({ taskId, text }: TaskInfoProps) {
   const [checked, setChecked] = useState(false);
 
   function handleTaskStatus() {
@@ -17,11 +17,11 @@ export function TaskInfo({ key, text }: TaskInfoProps) {
   return (
     <Container className={checked ? "taskDone" : ""}>
       <div className="checkboxControl">
-        <label htmlFor={key}>
+        <label htmlFor={taskId}>
           <input
             className="formInput"
             type="checkbox"
-            id={key}
+            id={taskId}
             checked={checked}
             onChange={handleTaskStatus}
           />
