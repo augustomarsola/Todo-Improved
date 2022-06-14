@@ -37,7 +37,6 @@ This will open a windown to preview the project on the adress **http://localhost
 
 ## TODO
 
-- Done Tasks number information
 - Order Finished Tasks to end of list
 - Save list on localstorage
 - Forbbiden add empty task

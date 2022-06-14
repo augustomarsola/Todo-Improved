@@ -6,12 +6,19 @@ interface TaskInfoProps {
   taskId: string;
   text: string;
   deleteTask: (id: string) => void;
+  updateTaskDone: (id: string) => void;
 }
 
-export function TaskInfo({ taskId, text, deleteTask }: TaskInfoProps) {
+export function TaskInfo({
+  taskId,
+  text,
+  deleteTask,
+  updateTaskDone,
+}: TaskInfoProps) {
   const [checked, setChecked] = useState(false);
 
-  function handleTaskStatus() {
+  function handleTaskStatus(id: string) {
+    updateTaskDone(id);
     setChecked(!checked);
   }
 
@@ -28,7 +35,7 @@ export function TaskInfo({ taskId, text, deleteTask }: TaskInfoProps) {
             type="checkbox"
             id={taskId}
             checked={checked}
-            onChange={handleTaskStatus}
+            onChange={() => handleTaskStatus(taskId)}
           />
           <span className="sr-only">Finalizar esta tarefa</span>
         </label>

@@ -7,6 +7,7 @@ import _ from "lodash";
 interface TasksProps {
   id: string;
   taskToDo: string;
+  taskDone: boolean;
 }
 
 export function TaskControl() {
@@ -17,6 +18,7 @@ export function TaskControl() {
     const newTask: TasksProps = {
       id: _.uniqueId("task_"),
       taskToDo: taskText,
+      taskDone: false,
     };
 
     setTask([...task, newTask]);
@@ -30,10 +32,27 @@ export function TaskControl() {
     setTask(filteredTasks);
   }
 
+  function updateTaskDone(id: string) {
+    const updatedTasksDone = task.map((taskUpdated) => {
+      if (taskUpdated.id === id) {
+        taskUpdated.taskDone = !taskUpdated.taskDone;
+        return taskUpdated;
+      }
+
+      return taskUpdated;
+    });
+
+    setTask(updatedTasksDone);
+  }
+
   return (
     <Container>
       <AddTask onFormSubmit={handleFormSubmit} />
-      <AllTasksList allTasks={task} deleteTask={deleteTask} />
+      <AllTasksList
+        allTasks={task}
+        deleteTask={deleteTask}
+        updateTaskDone={updateTaskDone}
+      />
     </Container>
   );
 }

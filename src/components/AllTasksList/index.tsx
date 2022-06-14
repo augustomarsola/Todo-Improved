@@ -5,14 +5,25 @@ import { TaskInfo } from "../TaskInfo";
 interface Tasks {
   id: string;
   taskToDo: string;
+  taskDone: boolean;
 }
 
 interface AllTasksListProps {
   allTasks: Tasks[];
   deleteTask: (id: string) => void;
+  updateTaskDone: (id: string) => void;
 }
 
-export function AllTasksList({ allTasks, deleteTask }: AllTasksListProps) {
+export function AllTasksList({
+  allTasks,
+  deleteTask,
+  updateTaskDone,
+}: AllTasksListProps) {
+  const tasksDone = allTasks.reduce((allTasksDone, task) => {
+    if (task.taskDone) return ++allTasksDone;
+    return allTasksDone;
+  }, 0);
+
   return (
     <Container>
       <div className="tasksOverview">
@@ -22,7 +33,9 @@ export function AllTasksList({ allTasks, deleteTask }: AllTasksListProps) {
         </div>
         <div>
           <span className="todosDone">Concluídas</span>
-          <span className="badge">2 de 5</span>
+          <span className="badge">
+            {allTasks.length ? tasksDone + " de " + allTasks.length : "0"}
+          </span>
         </div>
       </div>
 
@@ -34,6 +47,7 @@ export function AllTasksList({ allTasks, deleteTask }: AllTasksListProps) {
               taskId={task.id}
               text={task.taskToDo}
               deleteTask={deleteTask}
+              updateTaskDone={updateTaskDone}
             />
           ))
         ) : (
