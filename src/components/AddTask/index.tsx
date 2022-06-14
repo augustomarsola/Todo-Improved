@@ -13,8 +13,16 @@ export function AddTask({ onFormSubmit }: AddTaskProps) {
     setNewTask(e.target.value);
   }
 
+  function handleSubmitTask(
+    e: FormEvent<HTMLFormElement>,
+    newTaskPassed: string
+  ) {
+    onFormSubmit(e, newTask);
+    setNewTask("");
+  }
+
   return (
-    <ContainerForm onSubmit={(e) => onFormSubmit(e, newTask)}>
+    <ContainerForm onSubmit={(e) => handleSubmitTask(e, newTask)}>
       <input
         type="text"
         placeholder="Adicione uma nova tarefa"
