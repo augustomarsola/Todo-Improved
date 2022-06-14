@@ -37,6 +37,11 @@ This will open a windown to preview the project on the adress **http://localhost
 
 ## TODO
 
-- Order Finished Tasks to end of list
 - Save list on localstorage
 - Forbbiden add empty task
+
+To v2 >
+
+- Change colors base
+- Add a animation on open
+- Function to reorder tasks

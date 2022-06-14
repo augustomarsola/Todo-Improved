@@ -21,7 +21,7 @@ export function TaskControl() {
       taskDone: false,
     };
 
-    setTask([...task, newTask]);
+    setTask([newTask, ...task]);
   }
 
   function deleteTask(id: string) {
@@ -42,7 +42,14 @@ export function TaskControl() {
       return taskUpdated;
     });
 
-    setTask(updatedTasksDone);
+    const taskNotDone = updatedTasksDone.filter(
+      (taskFilter) => !taskFilter.taskDone
+    );
+    const taskDone = updatedTasksDone.filter(
+      (taskFilter) => taskFilter.taskDone
+    );
+
+    setTask([...taskNotDone, ...taskDone]);
   }
 
   return (
