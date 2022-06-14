@@ -5,13 +5,18 @@ import { useState } from "react";
 interface TaskInfoProps {
   taskId: string;
   text: string;
+  deleteTask: (id: string) => void;
 }
 
-export function TaskInfo({ taskId, text }: TaskInfoProps) {
+export function TaskInfo({ taskId, text, deleteTask }: TaskInfoProps) {
   const [checked, setChecked] = useState(false);
 
   function handleTaskStatus() {
     setChecked(!checked);
+  }
+
+  function handleDeleteTask(id: string) {
+    deleteTask(id);
   }
 
   return (
@@ -29,7 +34,11 @@ export function TaskInfo({ taskId, text }: TaskInfoProps) {
         </label>
       </div>
       <span>{text}</span>
-      <button aria-label="Excluir Tarefa" type="button">
+      <button
+        aria-label="Excluir Tarefa"
+        type="button"
+        onClick={() => handleDeleteTask(taskId)}
+      >
         <span className="sr-only">Excluir tarefa</span>
         <HiOutlineTrash />
       </button>

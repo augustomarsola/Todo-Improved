@@ -22,10 +22,18 @@ export function TaskControl() {
     setTask([...task, newTask]);
   }
 
+  function deleteTask(id: string) {
+    const filteredTasks = task.filter((taskFilter) => {
+      return taskFilter.id !== id;
+    });
+
+    setTask(filteredTasks);
+  }
+
   return (
     <Container>
       <AddTask onFormSubmit={handleFormSubmit} />
-      <AllTasksList allTasks={task} />
+      <AllTasksList allTasks={task} deleteTask={deleteTask} />
     </Container>
   );
 }

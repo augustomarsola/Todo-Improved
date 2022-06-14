@@ -9,9 +9,10 @@ interface Tasks {
 
 interface AllTasksListProps {
   allTasks: Tasks[];
+  deleteTask: (id: string) => void;
 }
 
-export function AllTasksList({ allTasks }: AllTasksListProps) {
+export function AllTasksList({ allTasks, deleteTask }: AllTasksListProps) {
   return (
     <Container>
       <div className="tasksOverview">
@@ -28,7 +29,12 @@ export function AllTasksList({ allTasks }: AllTasksListProps) {
       <div className="taskList">
         {allTasks.length ? (
           allTasks.map((task) => (
-            <TaskInfo key={task.id} taskId={task.id} text={task.taskToDo} />
+            <TaskInfo
+              key={task.id}
+              taskId={task.id}
+              text={task.taskToDo}
+              deleteTask={deleteTask}
+            />
           ))
         ) : (
           <div className="taskList__empty">
