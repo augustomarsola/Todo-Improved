@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
     --hover-blue: #0C1C26;
     --danger: #E25858;
 
+    --orange-700: #8C3908;
+    --orange-600: #F24405;
+    --orange-500: #F25C05;
+
     --gray-700: #0D0D0D;
     --gray-600: #1a1a1a;
     --gray-500: #262626;
@@ -35,8 +39,11 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Inter', sans-serif;
-    background: var(--gray-600);
     -webkit-font-smoothing: antialiased;
+    background: #000000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #000000, #333333); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #000000, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
   }
 
   body, input[type="text"], textarea, button {
@@ -51,7 +58,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 1rem;
     border: 1px solid transparent;
     border-radius: .5rem;
-    outline: var(--purple-dark);
+    outline: var(--orange-700);
     transition: .2s;
 
     &::placeholder {
@@ -59,14 +66,14 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     &:hover, &:focus {
-      border: 1px solid var(--purple-dark);
+      border: 1px solid var(--orange-700);
     }
   }
 
   .formInput {
     margin: 0;
     appearance: none;
-    border: .125rem solid var(--blue);
+    border: .125rem solid var(--orange-500);
     border-radius: 50%;
     width: 1rem;
     height: 1rem;
@@ -77,17 +84,17 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
 
     &:hover {
-      border: .125rem solid var(--blue-dark);
-      background: var(--hover-blue);
+      border: .125rem solid var(--orange-600);
+      background: var(--orange-600);
     }
     
     &:checked {
-      border: .125rem solid var(--purple-dark);
-      background: var(--purple-dark);
+      border: .125rem solid var(--orange-700);
+      background: var(--orange-700);
 
       &:hover {
-        border: .125rem solid var(--purple);
-        background: var(--purple);
+        border: .125rem solid var(--orange-600);
+        background: var(--orange-600);
       }
     }
   }

@@ -40,5 +40,6 @@ This will open a windown to preview the project on the adress **http://localhost
 To v2 >
 
 - Change colors base
+- Add the check arrow to checkboxes
 - Add a animation on open
 - Function to reorder tasks

@@ -12,19 +12,18 @@ export const ContainerForm = styled.form`
     align-items: center;
     gap: 0.5rem;
     margin-left: 0.5rem;
-    background: var(--blue-dark);
+    background: var(--orange-700);
     transition: 0.3s;
     font-weight: 700;
 
     &:hover {
-      background: var(--blue);
+      background: var(--orange-500);
     }
 
     &.disabled {
-      /* filter: grayscale(0.7); */
       cursor: not-allowed;
       &:hover {
-        background: var(--blue-dark);
+        background: var(--orange-700);
       }
     }
   }

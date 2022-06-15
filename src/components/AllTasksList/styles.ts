@@ -19,11 +19,11 @@ export const Container = styled.section`
   }
 
   .todosCreated {
-    color: var(--blue);
+    color: var(--orange-500);
   }
 
   .todosDone {
-    color: var(--purple);
+    color: var(--orange-600);
   }
 
   .badge {
