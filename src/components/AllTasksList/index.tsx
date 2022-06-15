@@ -48,6 +48,7 @@ export function AllTasksList({
               text={task.taskToDo}
               deleteTask={deleteTask}
               updateTaskDone={updateTaskDone}
+              taskStatus={task.taskDone}
             />
           ))
         ) : (

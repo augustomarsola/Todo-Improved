@@ -1,7 +1,8 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { AddTask } from "../AddTask";
 import { AllTasksList } from "../AllTasksList";
 import { Container } from "./styles";
+import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
 
 interface TasksProps {
@@ -11,12 +12,26 @@ interface TasksProps {
 }
 
 export function TaskControl() {
-  const [task, setTask] = useState<TasksProps[]>([]);
+  const [task, setTask] = useState<TasksProps[]>(() => {
+    const savedTasks = localStorage.getItem("tasksTodo");
+
+    if (savedTasks) {
+      return JSON.parse(savedTasks);
+    }
+
+    return [];
+  });
+
+  useEffect(() => {
+    const tasksJSON = JSON.stringify(task);
+
+    localStorage.setItem("tasksTodo", tasksJSON);
+  }, [task]);
 
   function handleFormSubmit(e: FormEvent<HTMLFormElement>, taskText: string) {
     e.preventDefault();
     const newTask: TasksProps = {
-      id: _.uniqueId("task_"),
+      id: uuidv4(),
       taskToDo: taskText,
       taskDone: false,
     };

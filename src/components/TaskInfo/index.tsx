@@ -7,6 +7,7 @@ interface TaskInfoProps {
   text: string;
   deleteTask: (id: string) => void;
   updateTaskDone: (id: string) => void;
+  taskStatus: boolean;
 }
 
 export function TaskInfo({
@@ -14,12 +15,10 @@ export function TaskInfo({
   text,
   deleteTask,
   updateTaskDone,
+  taskStatus,
 }: TaskInfoProps) {
-  const [checked, setChecked] = useState(false);
-
   function handleTaskStatus(id: string) {
     updateTaskDone(id);
-    setChecked(!checked);
   }
 
   function handleDeleteTask(id: string) {
@@ -27,14 +26,14 @@ export function TaskInfo({
   }
 
   return (
-    <Container className={checked ? "taskDone" : ""}>
+    <Container className={taskStatus ? "taskDone" : ""}>
       <div className="checkboxControl">
         <label htmlFor={taskId}>
           <input
             className="formInput"
             type="checkbox"
             id={taskId}
-            checked={checked}
+            checked={taskStatus}
             onChange={() => handleTaskStatus(taskId)}
           />
           <span className="sr-only">Finalizar esta tarefa</span>
