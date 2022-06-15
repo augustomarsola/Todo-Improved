@@ -37,8 +37,8 @@ This will open a windown to preview the project on the adress **http://localhost
 
 ## TODO
 
-- Save list on localstorage
 - Forbbiden add empty task
+- Save list on localstorage
 
 To v2 >
 

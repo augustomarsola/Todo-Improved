@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { ContainerForm } from "./styles";
 
@@ -10,7 +10,12 @@ export function AddTask({ onFormSubmit }: AddTaskProps) {
   const [newTask, setNewTask] = useState("");
 
   function handleTaskInput(e: ChangeEvent<HTMLInputElement>) {
+    e.target.setCustomValidity("");
     setNewTask(e.target.value);
+  }
+
+  function handleInvalidTask(e: InvalidEvent<HTMLInputElement>) {
+    e.target.setCustomValidity("Digite uma tarefa.");
   }
 
   function handleSubmitTask(
@@ -28,8 +33,14 @@ export function AddTask({ onFormSubmit }: AddTaskProps) {
         placeholder="Adicione uma nova tarefa"
         value={newTask}
         onChange={handleTaskInput}
+        required
+        onInvalid={handleInvalidTask}
       />
-      <button type="submit">
+      <button
+        type="submit"
+        aria-disabled={!!newTask.length}
+        className={newTask.length ? "" : "disabled"}
+      >
         Criar <AiOutlinePlusCircle size={"1.2rem"} />
       </button>
     </ContainerForm>

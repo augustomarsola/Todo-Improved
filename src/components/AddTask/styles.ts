@@ -15,8 +15,17 @@ export const ContainerForm = styled.form`
     background: var(--blue-dark);
     transition: 0.3s;
     font-weight: 700;
+
     &:hover {
       background: var(--blue);
+    }
+
+    &.disabled {
+      /* filter: grayscale(0.7); */
+      cursor: not-allowed;
+      &:hover {
+        background: var(--blue-dark);
+      }
     }
   }
 `;
