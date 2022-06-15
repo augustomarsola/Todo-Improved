@@ -37,8 +37,6 @@ This will open a windown to preview the project on the adress **http://localhost
 
 ## TODO
 
-- Save list on localstorage
-
 To v2 >
 
 - Change colors base
