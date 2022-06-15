@@ -32,7 +32,7 @@ This will open a windown to preview the project on the adress **http://localhost
 
 - [Vite](https://vitejs.dev/) - To create the project
 - [React](https://reactjs.org/) - The web framework used
-- [Typescript](https://rometools.github.io/rome/) - For superset JavaScript
+- [Typescript](https://rometools.github.io/rome/) - JavaScript Superset
 - [Styled Components](https://maven.apache.org/) - For styling
 
 ## TODO
